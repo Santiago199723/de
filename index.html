@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    text-align: center;
+  }
+
+  .container {
+    padding: 50px;
+    background-color: #ffecf2; /* Cor de fundo rosa claro */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+
+  h1 {
+    color: #e74c3c;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  #hidden-message, #button-container, #not-interested-message {
+    display: none;
+  }
+
+  #button-container {
+    margin-top: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  .heart {
+    color: #e74c3c;
+    font-size: 36px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Para Amanda <span class="heart">&hearts;</span>,</h1>
+    <button id="show-message-button">Ler declaração de amor do Santiago</button>
+    <p id="hidden-message">Amanda, não consigo parar de pensar em você. O que falta para sermos o melhor casal? Vamos ser felizes juntos?</p>
+    <p id="not-interested-message">Você não sabe o que perdeu!! 😄</p>
+    <div id="button-container">
+      <button id="accept-button">Sim, aceito!</button>
+      <button id="reject-button">Não, obrigado.</button>
+    </div>
+    <p id="confirmation-message" style="display: none;">Aí simm! Fizeste a melhor escolha! Santiago é um gatão, heim.>.</p>
+  </div>
+
+  <script>
+    const showMsgButton = document.getElementById('show-message-button');
+    const hiddenMsg = document.getElementById('hidden-message');
+    const notInterestedMsg = document.getElementById('not-interested-message');
+    const buttonContainer = document.getElementById('button-container');
+    const acceptButton = document.getElementById('accept-button');
+    const rejectButton = document.getElementById('reject-button');
+    const confirmationMsg = document.getElementById('confirmation-message');
+
+    showMsgButton.addEventListener('click', () => {
+      hiddenMsg.style.display = 'block';
+      buttonContainer.style.display = 'block';
+      notInterestedMsg.style.display = 'none';
+    });
+
+    acceptButton.addEventListener('click', () => {
+      confirmationMsg.style.display = 'block';
+      acceptButton.style.display = 'none';
+      rejectButton.style.display = 'none';
+    });
+
+    rejectButton.addEventListener('click', () => {
+      hiddenMsg.style.display = 'none';
+      buttonContainer.style.display = 'none';
+      notInterestedMsg.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
